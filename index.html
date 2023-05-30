@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="js/app.js"></script>
+    <title>SoriaDev</title>
+</head>
+<body>
+
+    <a-scene>
+        <a-assets>
+            <img src="textures/fondodos.jpg" id="fondo">
+            <img src="textures/meteoro.png" id="meteoro">
+        </a-assets>
+
+        <a-sky src="#fondo"></a-sky>
+
+        <a-entity position="0 3 0" rotation="0 0 0" class="orbit"
+            animation="property: rotation; dur: 20000; to: 0 360 360; loop: true; easing: linear"></a-entity>
+
+        <a-entity position="0 0 0" rotation="0 0 -45" class="orbit"
+            animation="property: rotation; dur: 20000; to: 0 -360 0; loop: true; easing: linear"></a-entity>
+
+        <a-entity position="0 -3 0" rotation="0 0 -90" class="orbit"
+            animation="property: rotation; dur: 20000; to: 0 360 360; loop: true; easing: linear"></a-entity>
+
+        <a-entity position="0 0 0" rotation="0 0 -120" class="orbit"
+            animation="property: rotation; dur: 20000; to: 360 -360 0; loop: true; easing: linear"></a-entity>
+        
+        <a-entity camera look-controls>
+            <a-text value="0 meteoritos destruidos" color="white" position="0 -0.1 -1" width="1" align="center"></a-text>
+            <a-entity cursor="fuse: true; fuseTimeout: 100" position="0 0 -1" raycaster="objects: .meteoro" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="shader: flat" ></a-entity>
+        </a-entity>
+
+    </a-scene>
+    
+</body>
+</html>
